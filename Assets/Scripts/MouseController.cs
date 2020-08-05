@@ -21,6 +21,7 @@ public class MouseController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        print(Input.mouseScrollDelta.y);
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         direction = (mousePosition - transform.position).normalized;
         rigidbody.velocity = new Vector2(direction.x * moveSpeed, direction.y * moveSpeed);
