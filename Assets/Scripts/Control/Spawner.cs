@@ -9,11 +9,13 @@ public class Spawner : MonoBehaviour
     private Vector2 screenBounds;
     private int currentItches = 0;
     public GameObject itch;
-    // Start is called before the first frame update
+    private AudioSource audioData;
+
     void Start()
     {
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
-        StartCoroutine(itchSpawner());
+        audioData = GetComponent<AudioSource>();
+        StartCoroutine(ItchSpawner());
     }
 
     // Update is called once per frame
@@ -22,7 +24,7 @@ public class Spawner : MonoBehaviour
 
     }
 
-    private void spawnItch()
+    private void SpawnItch()
     {
         GameObject newItch = Instantiate(itch) as GameObject;
         SpriteRenderer itchSpriteRenderer = newItch.GetComponent<SpriteRenderer>();
@@ -32,13 +34,20 @@ public class Spawner : MonoBehaviour
         currentItches++;
     }
 
-    IEnumerator itchSpawner()
+    IEnumerator ItchSpawner()
     {
         while (currentItches < maxItches)
         {
             yield return new WaitForSeconds(respawnTime);
-            spawnItch();
+            SpawnItch();
 
         }
+    }
+
+    public void DestroyItch(GameObject itch)
+    {
+        audioData.Play();
+        Destroy(itch);
+        currentItches--;
     }
 }

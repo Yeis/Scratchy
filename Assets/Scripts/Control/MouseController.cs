@@ -13,6 +13,7 @@ public class MouseController : MonoBehaviour
     private Vector2 direction;
     private AudioSource audioData;
     private Animator animator;
+    private Scratcher scratcher;
 
 
     // Start is called before the first frame update
@@ -23,6 +24,7 @@ public class MouseController : MonoBehaviour
         rigidbody = GetComponent<Rigidbody2D>();
         audioData = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
+        scratcher = GetComponent<Scratcher>();
     }
 
     // Update is called once per frame
@@ -35,7 +37,6 @@ public class MouseController : MonoBehaviour
     private void Scratching()
     {
         time += Time.deltaTime;
-        print(time);
         if (Input.mouseScrollDelta.y != 0)
         {
             if (time >= interpolationPeriod)
@@ -43,6 +44,7 @@ public class MouseController : MonoBehaviour
                 time = 0.0f;
                 if (!audioData.isPlaying) audioData.Play();
                 animator.SetBool("scratching", true);
+                scratcher.isScratching = true;
             }
         }
         else
@@ -52,10 +54,11 @@ public class MouseController : MonoBehaviour
                 // time = 0.0f;
                 if (audioData.isPlaying) audioData.Stop();
                 animator.SetBool("scratching", false);
+                scratcher.isScratching = false;
             }
         }
     }
-    
+
     private void PhysicalMovement()
     {
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
