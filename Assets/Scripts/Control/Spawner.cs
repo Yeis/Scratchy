@@ -6,6 +6,7 @@ public class Spawner : MonoBehaviour
 {
     public float respawnTime = 1.0f;
     public int maxItches = 5;
+    public GameObject belly;
     private Vector2 screenBounds;
     private int currentItches = 0;
     public GameObject itch;
@@ -33,9 +34,12 @@ public class Spawner : MonoBehaviour
     {
         GameObject newItch = Instantiate(itch) as GameObject;
         SpriteRenderer itchSpriteRenderer = newItch.GetComponent<SpriteRenderer>();
+        SpriteRenderer bellyRenderer = belly.GetComponent<SpriteRenderer>();
         float width = itchSpriteRenderer.bounds.size.x;
         float height = itchSpriteRenderer.bounds.size.y;
-        newItch.transform.position = new Vector3(Random.Range(-screenBounds.x, screenBounds.x - width), Random.Range(-screenBounds.y, screenBounds.y - height));
+
+        newItch.transform.SetParent(belly.transform);
+        newItch.transform.position = new Vector3(Random.Range(-bellyRenderer.bounds.extents.x, bellyRenderer.bounds.extents.x - width), Random.Range(0, bellyRenderer.bounds.extents.y - height));
         currentItches++;
     }
 
@@ -45,7 +49,6 @@ public class Spawner : MonoBehaviour
         {
             yield return new WaitForSeconds(respawnTime);
             SpawnItch();
-
         }
     }
 

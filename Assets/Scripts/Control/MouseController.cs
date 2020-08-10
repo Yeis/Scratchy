@@ -37,7 +37,7 @@ public class MouseController : MonoBehaviour
     private void Scratching()
     {
         time += Time.deltaTime;
-        if (Input.mouseScrollDelta.y != 0)
+        if (Input.mouseScrollDelta.y != 0 || Input.GetMouseButtonDown(0))
         {
             if (time >= interpolationPeriod)
             {

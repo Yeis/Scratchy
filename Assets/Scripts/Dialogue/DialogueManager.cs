@@ -14,6 +14,10 @@ public class DialogueManager : MonoBehaviour
     public AudioClip femaleBlip;
     public AudioClip maleBlip;
     public AudioClip busDoor;
+    public AudioClip roadSong;
+    public AudioClip endSong;
+    public AudioClip gameSong;
+    public AudioClip busDriving; 
     private Queue<string> sentences;
     private AudioSource audioData;
     private FadeController fadeController;
@@ -41,12 +45,16 @@ public class DialogueManager : MonoBehaviour
         }
         else if (scene.name == "Bus_Scene")
         {
+            audioData.loop = true;
+            audioData.PlayOneShot(roadSong, 1f);
             fadeController.FadeOut(2);
             player = GameObject.Find("PlayerDialogue").GetComponent<DialogueTrigger>();
             player.TriggerDialogue();
         }
         else if (scene.name == "House_Overview")
         {
+            audioData.loop = true;
+            audioData.PlayOneShot(roadSong, 1f);
             fadeController.FadeOut(2);
             player = GameObject.Find("PlayerDialogue").GetComponent<DialogueTrigger>();
             player.TriggerDialogue();
@@ -55,6 +63,8 @@ public class DialogueManager : MonoBehaviour
         {
             title.enabled = false;
             authors.enabled = false;
+            audioData.loop = true;
+            audioData.PlayOneShot(endSong, 1f);
             fadeController.FadeOut(2);
             player = GameObject.Find("PlayerDialogue").GetComponent<DialogueTrigger>();
             player.TriggerDialogue();
@@ -87,7 +97,7 @@ public class DialogueManager : MonoBehaviour
             fadeController.FadeIn(1);
             StartCoroutine(ChangeSceneAfterSound("Scratch_Game"));
         }
-        else if (scene.name == "End_Scene" && player.hasFinished && !audioData.isPlaying)
+        else if (scene.name == "End_Scene" && player.hasFinished)
         {
             fadeController.FadeIn(1);
             title.enabled = true;
@@ -152,8 +162,8 @@ public class DialogueManager : MonoBehaviour
         {
             dialogueText.text += letter;
 
-            if (name == "narrator") audioData.PlayOneShot(femaleBlip, 1f);
-            if (name == "player") audioData.PlayOneShot(maleBlip, 1f);
+            if (name == "narrator") audioData.PlayOneShot(femaleBlip, 0.4f);
+            if (name == "player") audioData.PlayOneShot(maleBlip, 0.4f);
             // yield return null;
             if (narrator != null && narrator.hasFinished) break;
             if (player != null && player.hasFinished) break;
