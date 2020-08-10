@@ -1893,19 +1893,19 @@ MonoBehaviour:
   dialogue:
     name: player
     sentences:
-    - "Can\u2019t believe we just finished the project and \u201CMariel\u201D wants
-      us to have already some mockups by next Monday."
-    - "Another week just passed by and I promise to myself I would start drawing
-      this week, that\u2019s why I ended up buying all those expensive pencils online."
-    - "haven\u2019t touched the guitar either, dammit, gotta do better than that"
-    - but I guess work takes most of my time
-    - hmmm... I wonder what I can make for dinner, I think have some pasta I can
+    - "Can\u2019t believe we just finished the project and the boss already wants
+      us to have some mockups for the next one by Monday."
+    - "Another week just passed by and I promised myself I would start drawing this
+      week, that\u2019s why I ended up buying all those expensive pencils online."
+    - "Haven\u2019t touched the guitar either, dammit. I have to do better than this"
+    - I guess work takes most of my time
+    - Hmmm... I wonder what I can make for dinner, I think have some pasta I can
       make
-    - "phew .. days feel so short, I feel like every day of every week is always
-      Thursday, I\u2019m almost thirty I don\u2019t even know what I want to do with
-      my life."
-    - "probably just playing some more games I bet, sometimes I feel like it\u2019s
-      so hard to get the motivation, to find a place where I really want to go.."
+    - " Hmmph .. days feel so short, I feel like every day of every week is Thursday,
+      I\u2019m almost thirty I don\u2019t even know what I want to do with my life.\r"
+    - "I\u2019ll probably end up just playing some more games I bet, sometimes I
+      feel like it\u2019s so hard to get motivation, to find a place where I really
+      want to go.."
   hasFinished: 0
 --- !u!4 &1910979551
 Transform:

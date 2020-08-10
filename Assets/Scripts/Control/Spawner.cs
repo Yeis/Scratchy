@@ -38,8 +38,7 @@ public class Spawner : MonoBehaviour
         float width = itchSpriteRenderer.bounds.size.x;
         float height = itchSpriteRenderer.bounds.size.y;
 
-        newItch.transform.SetParent(belly.transform);
-        newItch.transform.position = new Vector3(Random.Range(-bellyRenderer.bounds.extents.x, bellyRenderer.bounds.extents.x - width), Random.Range(0, bellyRenderer.bounds.extents.y - height));
+        newItch.transform.position = new Vector3(Random.Range(-4, 6 - width), Random.Range(-1, 4 - height));
         currentItches++;
     }
 

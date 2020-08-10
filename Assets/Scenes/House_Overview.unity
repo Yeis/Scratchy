@@ -411,12 +411,11 @@ MonoBehaviour:
   dialogue:
     name: player
     sentences:
-    - "Here we are finally getting home, I\u2019ll probably just end up eating a
-      sandwich."
-    - "Hey! Who\u2019s there on the porch is that Mr. Sneeze, hey little boy how\u2019s
+    - "Here we are, finally home, I\u2019ll probably just end up eating a sandwich."
+    - "Hey! Who\u2019s there on the porch? is that Mr. Sneeze? Hey kitty how\u2019s
       your day going so far?"
     - 'Mr sneeze: meoooow, meoooow'
-    - "Have been you waiting for me to come home and scratch that furry \u201Cbelly\u201D?"
+    - Have been you waiting for me to come home and give you some belly rubs?
     - 'Mr sneeze: meoooow'
   hasFinished: 0
 --- !u!4 &266726834
