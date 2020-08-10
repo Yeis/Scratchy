@@ -8,6 +8,7 @@ public class DialogueManager : MonoBehaviour
 {
     public Text nameText;
     public Text dialogueText;
+    public Text authors, title;
     public Animator animator;
     public float timeBetweenLetters = 0.1f;
     public AudioClip femaleBlip;
@@ -52,6 +53,8 @@ public class DialogueManager : MonoBehaviour
         }
         else if (scene.name == "End_Scene")
         {
+            title.enabled = false;
+            authors.enabled = false;
             fadeController.FadeOut(2);
             player = GameObject.Find("PlayerDialogue").GetComponent<DialogueTrigger>();
             player.TriggerDialogue();
@@ -65,6 +68,10 @@ public class DialogueManager : MonoBehaviour
         {
             DisplayNextSentence();
         }
+        else if (Input.GetKey("escape"))
+        {
+            Application.Quit();
+        }
 
         if (scene.name == "Beginning_Scene" && narrator.hasFinished && !audioData.isPlaying)
         {
@@ -75,6 +82,19 @@ public class DialogueManager : MonoBehaviour
             fadeController.FadeIn(1);
             StartCoroutine(ChangeSceneAfterSound("House_Overview"));
         }
+        else if (scene.name == "House_Overview" && player.hasFinished && !audioData.isPlaying)
+        {
+            fadeController.FadeIn(1);
+            StartCoroutine(ChangeSceneAfterSound("Scratch_Game"));
+        }
+        else if (scene.name == "End_Scene" && player.hasFinished && !audioData.isPlaying)
+        {
+            fadeController.FadeIn(1);
+            title.enabled = true;
+            authors.enabled = true;
+            StartCoroutine(FinishGameAfterDuration(5));
+        }
+
 
     }
 
@@ -109,6 +129,12 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(TypeSentence(sentence, currentDialogueName));
     }
 
+    IEnumerator FinishGameAfterDuration(int seconds) {
+        yield return new WaitForSeconds(seconds);
+        print("We are Done");
+        Application.Quit();
+    }
+
     IEnumerator ChangeSceneAfterSound(string sceneName)
     {
         audioData.pitch = 1.0f;
@@ -121,7 +147,6 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator TypeSentence(string sentence, string name)
     {
-        print(name);
         dialogueText.text = "";
         foreach (char letter in sentence.ToCharArray())
         {

@@ -10,11 +10,16 @@ public class Spawner : MonoBehaviour
     private int currentItches = 0;
     public GameObject itch;
     private AudioSource audioData;
-
+    private FadeController fadeController;
     void Start()
     {
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
         audioData = GetComponent<AudioSource>();
+        fadeController = GetComponent<FadeController>();
+        //ensure game start with fade black
+        fadeController.FadeIn(0);
+
+        fadeController.FadeOut(2);
         StartCoroutine(ItchSpawner());
     }
 
@@ -49,5 +54,6 @@ public class Spawner : MonoBehaviour
         audioData.Play();
         Destroy(itch);
         currentItches--;
+        GetComponent<GameLogic>().currentPoints++;
     }
 }

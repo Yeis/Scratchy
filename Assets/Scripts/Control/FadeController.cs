@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class FadeController : MonoBehaviour
 {
     public Image blackFade;
+    public Text title;
+    public Text author;
+
     // Start is called before the first frame update
     void Start()
     {

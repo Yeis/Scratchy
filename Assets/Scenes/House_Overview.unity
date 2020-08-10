@@ -343,7 +343,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.8679245, g: 0.19241722, b: 0.19241722, a: 1}
+    m_NormalColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -481,7 +481,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 1a1f930dedc783f48aed7f3b775d9df7, type: 3}
+      objectReference: {fileID: 8300000, guid: b37079b8885945f4b9159d8cd16cf2a1, type: 3}
     - target: {fileID: 2377887397097649554, guid: b583b2974a850974e83041e81683bccd,
         type: 3}
       propertyPath: m_Pitch

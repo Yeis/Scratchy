@@ -12,9 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/House_Overview.unity
     guid: 96b8b55bfb61b1349ace3705f2a3519e
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/Scratch_Game.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/Bus_Scene.unity
     guid: d58a7b9c48aa954488f0493e110b8dcb
+  - enabled: 1
+    path: Assets/Scenes/End_Scene.unity
+    guid: f55cfa686ecbe994f85135f87cd19fdc
   m_configObjects: {}
